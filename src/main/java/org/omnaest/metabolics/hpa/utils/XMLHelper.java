@@ -63,23 +63,32 @@ public class XMLHelper
 	 * @param type
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public static <T> T parse(String xml, Class<T> type)
 	{
-		T retval = null;
+		return parse(new StringReader(xml), type);
+	}
 
+	/**
+	 * Parses the xml content of the given {@link Reader}
+	 * 
+	 * @param reader
+	 * @param type
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	public static <T> T parse(Reader reader, Class<T> type)
+	{
+		T retval = null;
 		try
 		{
 			JAXBContext jaxbContext = JAXBContext.newInstance(type);
 			Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
-			Reader reader = new StringReader(xml);
 			retval = (T) unmarshaller.unmarshal(reader);
 			reader.close();
 		} catch (Exception e)
 		{
 			throw new ParseRuntimException(e);
 		}
-
 		return retval;
 	}
 
