@@ -18,13 +18,29 @@
 */
 package org.omnaest.metabolics.hpa.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement(name = "hmdb", namespace = "http://www.hmdb.ca")
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement(name = "proteinAtlas")
+@XmlAccessorType(XmlAccessType.NONE)
 public class HPAModel
 {
+	@XmlElement(name = "entry")
+	private List<Entry> entries = new ArrayList<>();
+
+	public List<Entry> getEntries()
+	{
+		return entries;
+	}
+
+	public void setEntries(List<Entry> entries)
+	{
+		this.entries = entries;
+	}
 
 }

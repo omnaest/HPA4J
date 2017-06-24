@@ -19,14 +19,34 @@
 package org.omnaest.metabolics.hpa;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.stream.StreamSupport;
 
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
+import org.apache.commons.io.LineIterator;
 import org.junit.Test;
+import org.omnaest.metabolics.hpa.domain.HPAModel;
+import org.omnaest.metabolics.hpa.utils.JSONHelper;
 
 public class HPAUtilsTest
 {
+
 	@Test
-	public void test()
+	public void test() throws IOException
 	{
-		HPAUtils.parse(new File(""));
+		File file = new File("C:\\Z\\databases\\proteinatlas\\proteinatlas.xml\\sample.xml");//new File("C:\\Z\\databases\\proteinatlas\\proteinatlas.xml\\proteinatlas.xml");
+
+//		FileInputStream openInputStream = FileUtils.openInputStream(file);
+//
+//		LineIterator lineIterator = IOUtils.lineIterator(openInputStream, "utf-8");
+//
+//		StreamSupport	.stream(((Iterable<String>) () -> lineIterator).spliterator(), false)
+//						.limit(20000)
+//						.forEach(System.out::println);
+
+		HPAModel model = HPAUtils.parse(file);
+		System.out.println(JSONHelper.prettyPrint(model));
 	}
 }
