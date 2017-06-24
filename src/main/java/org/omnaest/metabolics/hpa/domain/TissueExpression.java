@@ -28,7 +28,7 @@ public class TissueExpression
 	private List<Image> images = new ArrayList<>();
 
 	@XmlElement
-	private List<Data> data = new ArrayList<>();
+	private List<TissueData> data = new ArrayList<>();
 
 	public String getType()
 	{
@@ -80,12 +80,12 @@ public class TissueExpression
 		this.images = images;
 	}
 
-	public List<Data> getData()
+	public List<TissueData> getData()
 	{
 		return data;
 	}
 
-	public void setData(List<Data> data)
+	public void setData(List<TissueData> data)
 	{
 		this.data = data;
 	}

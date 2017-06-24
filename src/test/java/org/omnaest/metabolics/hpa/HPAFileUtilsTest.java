@@ -33,20 +33,6 @@ import org.omnaest.metabolics.hpa.domain.HPAModel;
 public class HPAFileUtilsTest
 {
 
-	/**
-	 * Generate a json extract of the original data
-	 * 
-	 * @throws IOException
-	 */
-	@Test
-	public void test() throws IOException
-	{
-		File file = new File("C:\\Z\\databases\\proteinatlas\\proteinatlas.xml\\proteinatlas.json");
-		HPAModel model = HPAFileUtils.parseFromJSON(file);
-	
-
-	}
-
 	@Test
 	@Ignore
 	public void testGetFileSample() throws IOException
@@ -74,6 +60,7 @@ public class HPAFileUtilsTest
 	public void testGenerateJsonExtract() throws IOException
 	{
 		File file = new File("C:\\Z\\databases\\proteinatlas\\proteinatlas.xml\\proteinatlas.xml");
+		//		File file = new File("C:\\Z\\databases\\proteinatlas\\proteinatlas.xml\\sample.xml");
 		HPAModel model = HPAFileUtils.parseFromXML(file);
 		FileUtils.writeStringToFile(new File(file.getParent() + "/proteinatlas.json"), HPAFileUtils.serializeToJSON(model), "utf-8");
 

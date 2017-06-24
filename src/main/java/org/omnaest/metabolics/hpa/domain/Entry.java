@@ -29,8 +29,32 @@ public class Entry
 	@XmlElement
 	private TissueExpression tissueExpression;
 
-	
-	
+	@XmlElement
+	private CellExpression cellExpression;
+
+	@XmlElement
+	private RnaExpression rnaExpression;
+
+	public CellExpression getCellExpression()
+	{
+		return cellExpression;
+	}
+
+	public void setCellExpression(CellExpression cellExpression)
+	{
+		this.cellExpression = cellExpression;
+	}
+
+	public RnaExpression getRnaExpression()
+	{
+		return rnaExpression;
+	}
+
+	public void setRnaExpression(RnaExpression rnaExpression)
+	{
+		this.rnaExpression = rnaExpression;
+	}
+
 	public String getVersion()
 	{
 		return version;
